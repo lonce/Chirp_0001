@@ -1,0 +1,82 @@
+{
+
+	"soundname": "Chirp_0001",
+	"samplerate": 16000,
+	"chunkSecs": 1,
+	"soundDuration": 2,
+	"outPath": "dataset",
+	"recordFormat": "params",
+	"params":
+	[
+		{
+            "user_pname": "Irregularity",
+            "user_minval": 0,
+            "user_maxval": 1,
+            "user_nvals": 2,
+            "user_doc": "map to natural synth irregularity param [0, 1]",
+            "synth_pname": "irreg_exp",
+            "synth_minval": 0,
+            "synth_maxval": 50,
+            "synth_units": "natural"
+        },
+		{
+	        "user_pname": "rate",
+	        "user_minval": 0,
+	        "user_maxval": 1,
+            "user_nvals": 2,
+	        "user_doc": "Mapped to [2,3]. Actual rate is 2^(rate_exp)",
+	        "synth_pname": "rate_exp",
+	        "synth_minval": 2,
+	        "synth_maxval": 3,
+	        "synth_units" :  "natural"
+		},
+		{
+            "user_pname": "nocts",
+            "user_minval": 0,
+            "user_maxval": 1,
+            "user_nvals": 2,
+            "user_doc": "mapped to [-3,3], sweep octaves",
+            "synth_pname": "nocts",
+            "synth_minval": -3,
+            "synth_maxval": 3,
+            "synth_units": "natural"
+        },
+		{
+            "user_pname": "evdur",
+            "user_minval": 0,
+            "user_maxval": 1,
+            "user_nvals": 2,
+            "user_doc": "mapped to [.04, 4], event dur in seconds",
+            "synth_pname": "evdur",
+            "synth_minval": 0.04,
+            "synth_maxval": 0.4,
+            "synth_units": "natural"
+        }
+	],
+	"fixedParams":
+	[
+		{
+            "user_pname": "cf",
+            "user_pval": 880,
+            "user_minval": 400,
+            "user_maxval": 1200,
+            "user_doc": "center frequency of sweep",
+            "synth_pname": "cf",
+            "synth_minval": 400,
+            "synth_maxval": 1200,
+            "synth_units": "natural"
+        },
+		{
+            "user_pname": "cfsd",
+            "user_pval": 0,
+            "user_minval": 0,
+            "user_maxval": 1,
+            "user_doc": "no variation in center frequency",
+            "synth_pname": "cfsd",
+            "synth_minval": 0,
+            "synth_maxval": 10,
+            "synth_units": "natural"
+        }
+
+	]
+}
