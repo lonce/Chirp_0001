@@ -1,15 +1,15 @@
-# popTextureDS
+# Chirp_0001
 Generating synthetic popTextures
 
 # User instructions
 
-  >> git clone https://github.com/prashanthtr/popTextureDS.git
+  >> git clone https://github.com/lonce/Chirp_0001.git
 
-  >> cd popTextureDS/
+  >> cd Chirp_0001/
 
-  >> conda create -n popTextureDS python=3.8 ipykernel
+  >> conda create -n Chirp_0001 python=3.8 ipykernel
 
-  >> conda activate popTextureDS
+  >> conda activate Chirp_0001
 
   >> python3 -m pip install -r requirements.txt --src '.'(please run twice - due to numba dependency error)
 
@@ -17,11 +17,11 @@ Generating synthetic popTextures
 
 >> pip install jupyter
 
->> python3 -m ipykernel install --user --name popTextureDS
+>> python3 -m ipykernel install --user --name Chirp_0001
 
 >> jupyter notebook
 
->> Select *popTexture-notebook.ipynb* in the browser interface
+>> Select *ChirpViz.ipynb* in the browser interface
 
 # Generate files from commandline
 
@@ -29,15 +29,6 @@ Generating synthetic popTextures
 
 # Config File descriptions
 
->> "soundname": "pop_sound",
-
->> "samplerate": 16000,
-
->> "numVariations": 2,
-
->> "soundDuration": 4,
-
->> "outPath": "pop_sound",
 
 >> "recordFormat": The format of the output parameter records  0 (*paramManager*), 1 (*SonyGan*) and 2 (*Tfrecords*)
 
