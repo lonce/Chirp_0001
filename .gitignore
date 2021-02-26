@@ -1,0 +1,13 @@
+dataset/
+
+parammanager/
+
+sonyganformat/
+
+genericsynth/
+
+dsgenerator/
+
+__pycache__/
+
+.ipynb_checkpoints/

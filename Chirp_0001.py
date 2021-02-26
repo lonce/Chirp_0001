@@ -81,7 +81,7 @@ class PatternSynth(SI.MySoundModel) :
 
 
                 # envelope with 10ms attack, decay at the beginning and the end of the whole signal. Avoid rude cuts
-                length = round(sigLenSecs*self.sr) # in samples
+                length = int(round(sigLenSecs*self.sr)) # in samples
                 ltrans = round(.01*self.sr)
                 midms=length-2*ltrans-1
                 ampenv=bkpoint([0,1,1,0,0],[ltrans,midms,ltrans,1])

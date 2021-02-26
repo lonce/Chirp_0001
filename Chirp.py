@@ -49,13 +49,13 @@ class Chirp(SI.MySoundModel) :
 		comps=self.getParam("comps")
 
 		# envelope with 5ms attack, decay
-		length = round(sigLenSecs*self.sr) # in samples
+		length = int(round(sigLenSecs*self.sr))# in samples
 		ltrans = round(.005*self.sr)
 		midms=length-2*ltrans-1
 		ampenv=bkpoint([0,1,1,0,0],[ltrans,midms,ltrans,1])
 
 		# The frequency sweep in units of octaves
-		octs=np.linspace(-nocts/2, nocts/2, length, True)
+		octs=np.linspace(-nocts/2., nocts/2., length, True)
 
 		# Now generate each component with its different cf, and add them together
 		signal = np.zeros(length)

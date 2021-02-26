@@ -11,7 +11,7 @@ Generating synthetic popTextures
 
   >> conda activate Chirp_0001
 
-  >> python3 -m pip install -r requirements.txt --src '.'(please run twice - due to numba dependency error)
+  >> python3 -m pip install -r requirements.txt --src '.'
 
 # Setup and run jupyter notebook
 
@@ -25,7 +25,7 @@ Generating synthetic popTextures
 
 # Generate files from commandline
 
->> python3 DSGenerator/generate.py --configfile config_file.json
+>> python3 DSGenerator/generate.py --configfile config_file.json --outputpath dataset
 
 # Config File descriptions
 
