@@ -15,26 +15,32 @@ def bkpoint(y,s) :
         sig=np.concatenate((sig, np.linspace(y[j], y[j+1], s[j], False)), 0)
     return sig
 
+def oct2freq(octs, bf=440.) :
+    return bf * np.power(2,octs)
+
+def freq2oct(freq, bf=440.) :
+    return np.log2(freq/bf)
 
 ################################################################################################################
 class PatternSynth(SI.MySoundModel) :
 
-	def __init__(self, cf=440, nocts=2, rate_exp=0, irreg_exp=1, evdur=.25, cfsd=0, evamp=.5) :
+	def __init__(self, cf_exp=440, nocts=2, rate_exp=0, irreg_exp=1, evdur=.25, cfsd=0, evamp=.5) :
 
                 SI.MySoundModel.__init__(self)
 
 
                 #get the sub synth
-                self.evSynth=Chirp(cf, nocts)
+                self.evSynth=Chirp(oct2freq(cf_exp), nocts)
 
 
 		#create a dictionary of the parameters this synth will use
-                self.__addParam__("cf", 
-                        self.evSynth.getParam('cf', "min"), 
-                        self.evSynth.getParam('cf', "max"), 
-                        self.evSynth.getParam('cf'),
+                #cf_exp is number of octaves relative to 440 cps
+                self.__addParam__("cf_exp", 
+                        freq2oct(self.evSynth.getParam('cf', "min")), 
+                        freq2oct(self.evSynth.getParam('cf', "max")), 
+                        freq2oct(self.evSynth.getParam('cf')),
 			lambda v :
-				self.evSynth.setParam('cf', v))
+				self.evSynth.setParam('cf', oct2freq(v)))
 
                 self.__addParam__("nocts", 
                         self.evSynth.getParam('nocts', "min"), 
@@ -73,7 +79,8 @@ class PatternSynth(SI.MySoundModel) :
                         startsamp=int(round(nf*self.sr))%numSamples
 
                         # create some deviation in center frequency
-                        perturbedCf = self.getParam("cf")*np.power(2,np.random.normal(scale=cfsd)/12)
+                        #perturbedCf = 440*np.power(2,self.getParam("cf_exp")+np.random.normal(scale=cfsd)/12)
+                        perturbedCf = oct2freq(self.getParam("cf_exp")+np.random.normal(scale=cfsd)/12)
 
                         self.evSynth.setParam("cf", perturbedCf)
                         gensig = self.evSynth.generate(self.getParam("evdur"))
