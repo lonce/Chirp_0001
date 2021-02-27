@@ -44,7 +44,7 @@
             "user_pname": "evdur",
             "user_minval": 0,
             "user_maxval": 1,
-            "user_nvals": 3,
+            "user_nvals": 5,
             "user_doc": "0-1] ->  [.04, .2], event dur in seconds",
             "synth_pname": "evdur",
             "synth_minval": 0.04,
